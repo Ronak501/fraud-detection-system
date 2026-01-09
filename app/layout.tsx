@@ -10,24 +10,24 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "AI Fraud Detection - Government City Buses",
   description: "Enterprise-grade fraud detection system for government city transport using privacy-first AI",
-  generator: "v0.app",
-  icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
-  },
+  generator: "Ronak Talaviya",
+//   icons: {
+//     icon: [
+//       {
+//         url: "/icon-light-32x32.png",
+//         media: "(prefers-color-scheme: light)",
+//       },
+//       {
+//         url: "/icon-dark-32x32.png",
+//         media: "(prefers-color-scheme: dark)",
+//       },
+//       {
+//         url: "/icon.svg",
+//         type: "image/svg+xml",
+//       },
+//     ],
+//     apple: "/apple-icon.png",
+//   },
 }
 
 export default function RootLayout({

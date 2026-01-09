@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Search, AlertCircle, CheckCircle2, AlertTriangle, Eye } from "lucide-react"
+import { Search, AlertCircle, CheckCircle2, AlertTriangle, Eye, Bus, Users, MapPin, AlertCircle as AlertIcon } from "lucide-react"
 import Link from "next/link"
 
 interface Conductor {
@@ -98,10 +98,10 @@ function OfficerDashboardContent() {
   ]
 
   const kpis = [
-    { label: "Active Buses", value: "847", icon: "🚌" },
-    { label: "Conductors on Duty", value: "847", icon: "👮" },
-    { label: "Trips Monitored", value: "12,547", icon: "📍" },
-    { label: "Alerts Detected", value: "23", icon: "⚠️" },
+    { label: "Active Buses", value: "847", icon: Bus },
+    { label: "Conductors on Duty", value: "847", icon: Users },
+    { label: "Trips Monitored", value: "12,547", icon: MapPin },
+    { label: "Alerts Detected", value: "23", icon: AlertIcon },
   ]
 
   const filteredConductors = conductors.filter((c) => c.name.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -176,7 +176,7 @@ function OfficerDashboardContent() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {kpis.map((kpi, idx) => (
             <Card key={idx} className="p-6 border border-border/50">
-              <div className="text-3xl mb-3">{kpi.icon}</div>
+              <kpi.icon className="w-6 h-6 mb-2 text-primary" />
               <p className="text-sm text-foreground/60 mb-1">{kpi.label}</p>
               <p className="text-3xl font-bold text-foreground">{kpi.value}</p>
             </Card>

@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts"
-import { Settings, Users } from "lucide-react"
+import { Camera, Settings, Users, Bot, Zap } from "lucide-react"
 import Link from "next/link"
 
 export default function AdminDashboard() {
@@ -103,18 +103,18 @@ export default function AdminDashboard() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { label: "Camera Uptime", value: `${systemMetrics.cameraUptime}%`, icon: "📹", color: "green" },
-              { label: "AI Accuracy", value: `${systemMetrics.aiAccuracy}%`, icon: "🤖", color: "blue" },
-              { label: "Detection FPS", value: systemMetrics.detectionFPS.toFixed(1), icon: "⚡", color: "purple" },
+              { label: "Camera Uptime", value: `${systemMetrics.cameraUptime}%`, icon: Camera, color: "green" },
+              { label: "AI Accuracy", value: `${systemMetrics.aiAccuracy}%`, icon: Bot, color: "blue" },
+              { label: "Detection FPS", value: systemMetrics.detectionFPS.toFixed(1), icon: Zap, color: "purple" },
               {
                 label: "Confidence Score",
                 value: `${systemMetrics.confidenceScore}%`,
-                icon: "✓",
+                icon: Settings,
                 color: "green",
               },
             ].map((metric, idx) => (
               <Card key={idx} className="p-6 border border-border/50">
-                <div className="text-3xl mb-2">{metric.icon}</div>
+                <metric.icon className="w-6 h-6 mb-2 text-primary" />
                 <p className="text-sm text-foreground/60 mb-1">{metric.label}</p>
                 <p className="text-3xl font-bold text-foreground">{metric.value}</p>
               </Card>

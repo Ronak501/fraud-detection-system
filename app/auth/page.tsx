@@ -40,9 +40,9 @@ export default function AuthPage() {
   }
 
   const roles = [
-    { value: "admin" as const, label: "System Admin", icon: "🔧" },
-    { value: "officer" as const, label: "Government Officer", icon: "👮" },
-    { value: "conductor" as const, label: "Bus Conductor", icon: "🚌" },
+    { value: "admin" as const, label: "System Admin"},
+    { value: "officer" as const, label: "Government Officer"},
+    { value: "conductor" as const, label: "Bus Conductor"},
   ]
 
   return (
@@ -78,7 +78,6 @@ export default function AuthPage() {
                     : "text-foreground/60 hover:text-foreground"
                 }`}
               >
-                <span className="mr-1">{role.icon}</span>
                 <span className="hidden sm:inline">{role.label}</span>
                 <span className="sm:hidden">{role.label.split(" ")[0]}</span>
               </button>
