@@ -29,6 +29,9 @@ export default function LandingPage() {
             <a href="/models" className="text-sm text-foreground/70 hover:text-foreground transition">
               Models
             </a>
+            <a href="/analytics" className="text-sm text-foreground/70 hover:text-foreground transition">
+              Analytics
+            </a>
           </div>
 
           <div className="flex items-center gap-3">
