@@ -19,6 +19,8 @@ import {
 } from "recharts"
 import { ArrowLeft, Download, AlertCircle } from "lucide-react"
 import Link from "next/link"
+import jsPDF from "jspdf"
+import autoTable from "jspdf-autotable"
 
 export default function ConductorReportPage({ params }: { params: { id: string } }) {
   const [selectedTab, setSelectedTab] = useState("overview")
@@ -76,6 +78,123 @@ export default function ConductorReportPage({ params }: { params: { id: string }
     { period: "Week 5", fraudRate: 1.2 },
   ]
 
+  const generateDummyPDF = () => {
+    const doc = new jsPDF()
+    let currentY = 20
+
+    // =========================
+    // HEADER
+    // =========================
+    doc.setFontSize(18)
+    doc.text("TransitGuard – Conductor Performance Report", 14, currentY)
+    currentY += 8
+
+    doc.setFontSize(11)
+    doc.setTextColor(100)
+    doc.text(`Generated on: ${new Date().toLocaleString()}`, 14, currentY)
+    currentY += 12
+
+    // =========================
+    // CONDUCTOR INFO
+    // =========================
+    doc.setFontSize(13)
+    doc.setTextColor(0)
+    doc.text("Conductor Information", 14, currentY)
+    currentY += 5
+
+    autoTable(doc, {
+      startY: currentY,
+      theme: "grid",
+      head: [["Field", "Value"]],
+      body: [
+        ["Name", conductorInfo.name],
+        ["Conductor ID", conductorInfo.id],
+        ["Employee Number", conductorInfo.employeeNumber],
+        ["Bus Route", conductorInfo.busRoute],
+        ["Bus Number", conductorInfo.busNumber],
+        ["Depot", conductorInfo.depot],
+        ["Trust Score", `${conductorInfo.trustScore}`],
+      ],
+      didDrawPage: (data:any) => {
+        currentY = data.cursor.y + 10
+      },
+    })
+
+    // =========================
+    // PASSENGER vs TICKET
+    // =========================
+    doc.text("Passenger vs Ticket Summary", 14, currentY)
+    currentY += 5
+
+    autoTable(doc, {
+      startY: currentY,
+      theme: "striped",
+      head: [["Time", "Passengers", "Tickets", "Mismatch"]],
+      body: passengerVsTicketData.map((d) => [
+        d.time,
+        d.passengers,
+        d.tickets,
+        Math.abs(d.passengers - d.tickets),
+      ]),
+      didDrawPage: (data:any) => {
+        currentY = data.cursor.y + 10
+      },
+    })
+
+    // =========================
+    // STOP-WISE MISMATCH
+    // =========================
+    doc.text("Stop-wise Mismatch Report", 14, currentY)
+    currentY += 5
+
+    autoTable(doc, {
+      startY: currentY,
+      theme: "striped",
+      head: [["Stop Name", "Mismatch Count"]],
+      body: stopWiseMismatchData.map((s) => [s.stop, s.mismatch]),
+      didDrawPage: (data:any) => {
+        currentY = data.cursor.y + 10
+      },
+    })
+
+    // =========================
+    // SUMMARY
+    // =========================
+    doc.text("Performance Summary", 14, currentY)
+    currentY += 5
+
+    autoTable(doc, {
+      startY: currentY,
+      theme: "grid",
+      head: [["Metric", "Value"]],
+      body: [
+        ["Average Mismatch Rate", "1.9%"],
+        ["Alerts Today", "0"],
+        ["Current Trust Score", conductorInfo.trustScore],
+        ["Compliance Status", "Compliant"],
+      ],
+      didDrawPage: (data:any) => {
+        currentY = data.cursor.y + 10
+      },
+    })
+
+    // =========================
+    // FOOTER
+    // =========================
+    doc.setFontSize(10)
+    doc.setTextColor(120)
+    doc.text(
+      "This is a system-generated dummy report for demonstration purposes only.",
+      14,
+      285
+    )
+
+    // =========================
+    // SAVE
+    // =========================
+    doc.save(`TransitGuard_Report_${conductorInfo.id}.pdf`)
+  }
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -96,7 +215,7 @@ export default function ConductorReportPage({ params }: { params: { id: string }
             </div>
           </div>
 
-          <Button variant="outline" size="sm" className="gap-2 bg-transparent">
+          <Button variant="outline" size="sm" className="gap-2 bg-transparent" onClick={generateDummyPDF}>
             <Download className="w-4 h-4" />
             Export Report
           </Button>
