@@ -26,6 +26,9 @@ export default function LandingPage() {
             <a href="#trust" className="text-sm text-foreground/70 hover:text-foreground transition">
               Trust
             </a>
+            <a href="/models" className="text-sm text-foreground/70 hover:text-foreground transition">
+              Models
+            </a>
           </div>
 
           <div className="flex items-center gap-3">
@@ -110,7 +113,7 @@ export default function LandingPage() {
                     <Camera className="w-20 h-20 text-primary" />
                     <div className="text-center space-y-2">
                       <div className="text-sm font-semibold text-primary">Real-Time Detection</div>
-                      <div className="text-2xl font-bold text-foreground">98.7%</div>
+                      <div className="text-2xl font-bold text-foreground">~90%</div>
                       <div className="text-sm text-foreground/60">Fraud Detection Accuracy</div>
                     </div>
                   </div>

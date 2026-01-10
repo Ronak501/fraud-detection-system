@@ -47,8 +47,12 @@ export default function AuthPage() {
             password,
             role: activeTab,
           })
-          console.log("Authentication successful", res.data)
+          // console.log("Authentication successful", res.data)
 
+          if(res.data.success !== true) {
+            throw new Error(res.data.message || "Authentication failed")
+          }
+          
           // Redirect based on role
           const dashboardMap = {
             admin: "/admin",

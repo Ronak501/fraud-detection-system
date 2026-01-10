@@ -322,7 +322,7 @@ export default function AdminDashboard() {
                   Government Officers
                 </h3>
                 <Button size="sm" asChild>
-                  <Link href="#">Add Officer</Link>
+                  <Link href="/auth">Add Officer</Link>
                 </Button>
               </div>
 
