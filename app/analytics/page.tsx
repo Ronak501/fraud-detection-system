@@ -2,11 +2,12 @@
 
 import { useState, useRef } from "react"
 import { Upload } from "lucide-react"
-import axios from "axios"
 
 export default function AnalyticsPage() {
   const [crowdLoading, setCrowdLoading] = useState(false)
   const [entryLoading, setEntryLoading] = useState(false)
+  const [crowdCount, setCrowdCount] = useState<number | null>(null)
+  const [entryCount, setEntryCount] = useState<number | null>(null)
   const [crowdVideoId, setCrowdVideoId] = useState<string | null>(null)
   const [entryVideoId, setEntryVideoId] = useState<string | null>(null)
   const crowdFileRef = useRef<HTMLInputElement>(null)
@@ -24,10 +25,12 @@ export default function AnalyticsPage() {
     form.append("file", file)
 
     try {
-        const res = await axios.post("http://172.16.5.48:8000/upload-crowd-video", form)
-        const data = res.data
-        // console.log(data.video_id)
-        setCrowdVideoId(data.video_id)
+      const res = await fetch("http://172.16.5.48:8000/upload-crowd-video", {
+        method: "POST",
+        body: form,
+      })
+      const data = await res.json()
+      setCrowdVideoId(data.video_id)
     } catch (error) {
       console.error("Crowd upload error:", error)
       alert("Upload failed")
@@ -62,6 +65,40 @@ export default function AnalyticsPage() {
     }
   }
 
+  const crowdFetchCount = async () => {
+    setCrowdLoading(true)
+    try {
+      if (!crowdVideoId) return
+      const res = await fetch(`http://172.16.5.48:8000/crowd_count/${crowdVideoId}`, {
+        method: "GET",
+      })
+      const data = await res.json()
+      setCrowdCount(data.total_people)
+    } catch (error) {
+      console.error("Crowd count error:", error)
+      alert("Fetch failed")
+    } finally {
+      setCrowdLoading(false)
+    }
+  }
+
+  const entryFetchCount = async () => {
+    setEntryLoading(true)
+    try {
+      if (!entryVideoId) return
+      const res = await fetch(`http://172.16.5.48:8000/entry_count/${entryVideoId}`, {
+        method: "GET",
+      })
+      const data = await res.json()
+      setEntryCount(data.Total_count)
+    } catch (error) {
+      console.error("Entry count error:", error)
+      alert("Fetch failed")
+    } finally {
+      setEntryLoading(false)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
@@ -91,7 +128,7 @@ export default function AnalyticsPage() {
           </div>
 
           {/* Video iframe */}
-          <div className="bg-black rounded-lg overflow-hidden" style={{ aspectRatio: "16 / 9" }}>
+          <div className="bg-black rounded-lg overflow-hidden mb-6" style={{ aspectRatio: "16 / 9" }}>
             {crowdVideoId ? (
               <iframe
                 src={`http://172.16.5.48:8000/crowd-stream/${crowdVideoId}`}
@@ -107,6 +144,24 @@ export default function AnalyticsPage() {
               </div>
             )}
           </div>
+
+          {crowdVideoId && (
+            <div className="flex items-center gap-4">
+              <button
+                onClick={crowdFetchCount}
+                disabled={crowdLoading}
+                className="px-6 py-2 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 disabled:bg-slate-400 transition"
+              >
+                {crowdLoading ? "Fetching..." : "Get Final Count"}
+              </button>
+
+              {crowdCount !== null && (
+                <div className="text-lg font-semibold text-slate-800">
+                  Total People: <span className="text-green-600">{crowdCount}</span>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Entry Counting Card */}
@@ -133,7 +188,7 @@ export default function AnalyticsPage() {
           </div>
 
           {/* Video iframe */}
-          <div className="bg-black rounded-lg overflow-hidden" style={{ aspectRatio: "16 / 9" }}>
+          <div className="bg-black rounded-lg overflow-hidden mb-6" style={{ aspectRatio: "16 / 9" }}>
             {entryVideoId ? (
               <iframe
                 src={`http://172.16.5.48:8000/entry-stream/${entryVideoId}?t=${Date.now()}`}
@@ -149,6 +204,24 @@ export default function AnalyticsPage() {
               </div>
             )}
           </div>
+
+          {entryVideoId && (
+            <div className="flex items-center gap-4">
+              <button
+                onClick={entryFetchCount}
+                disabled={entryLoading}
+                className="px-6 py-2 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 disabled:bg-slate-400 transition"
+              >
+                {entryLoading ? "Fetching..." : "Get Final Count"}
+              </button>
+
+              {entryCount !== null && (
+                <div className="text-lg font-semibold text-slate-800">
+                  Total Entries: <span className="text-green-600">{entryCount}</span>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
