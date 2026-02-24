@@ -13,24 +13,47 @@ export default function LandingPage() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
               <Camera className="w-5 h-5 text-white" />
             </div>
-            <span className="font-semibold text-lg text-foreground">TransitGuard</span>
+            <span className="font-semibold text-lg text-foreground">
+              TransitGuard
+            </span>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm text-foreground/70 hover:text-foreground transition">
+            <a
+              href="#features"
+              className="text-sm text-foreground/70 hover:text-foreground transition"
+            >
               Features
             </a>
-            <a href="#how-it-works" className="text-sm text-foreground/70 hover:text-foreground transition">
+            <a
+              href="#how-it-works"
+              className="text-sm text-foreground/70 hover:text-foreground transition"
+            >
               How It Works
             </a>
-            <a href="#trust" className="text-sm text-foreground/70 hover:text-foreground transition">
+            <a
+              href="#trust"
+              className="text-sm text-foreground/70 hover:text-foreground transition"
+            >
               Trust
             </a>
-            <a href="/models" className="text-sm text-foreground/70 hover:text-foreground transition">
+            <a
+              href="/models"
+              className="text-sm text-foreground/70 hover:text-foreground transition"
+            >
               Models
             </a>
-            <a href="/analytics" className="text-sm text-foreground/70 hover:text-foreground transition">
+            <a
+              href="/analytics"
+              className="text-sm text-foreground/70 hover:text-foreground transition"
+            >
               Analytics
+            </a>
+            <a
+              href="/suratmap"
+              className="text-sm text-foreground/70 hover:text-foreground transition"
+            >
+              Routes
             </a>
           </div>
 
@@ -69,13 +92,18 @@ export default function LandingPage() {
                   AI-Driven Transparency for Government City Transport
                 </h1>
                 <p className="text-xl text-foreground/70 leading-relaxed text-balance">
-                  Detect ticket fraud in real time using privacy-first computer vision and analytics. Secure,
-                  government-compliant, and deployed by leading transit authorities.
+                  Detect ticket fraud in real time using privacy-first computer
+                  vision and analytics. Secure, government-compliant, and
+                  deployed by leading transit authorities.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild className="bg-gradient-to-r from-primary to-secondary">
+                <Button
+                  size="lg"
+                  asChild
+                  className="bg-gradient-to-r from-primary to-secondary"
+                >
                   <Link href="/auth">
                     Government Login
                     <ArrowRight className="w-4 h-4 ml-2" />
@@ -115,9 +143,15 @@ export default function LandingPage() {
                   <div className="relative z-10 p-8 flex flex-col items-center justify-center h-full gap-6">
                     <Camera className="w-20 h-20 text-primary" />
                     <div className="text-center space-y-2">
-                      <div className="text-sm font-semibold text-primary">Real-Time Detection</div>
-                      <div className="text-2xl font-bold text-foreground">~90%</div>
-                      <div className="text-sm text-foreground/60">Fraud Detection Accuracy</div>
+                      <div className="text-sm font-semibold text-primary">
+                        Real-Time Detection
+                      </div>
+                      <div className="text-2xl font-bold text-foreground">
+                        ~90%
+                      </div>
+                      <div className="text-sm text-foreground/60">
+                        Fraud Detection Accuracy
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -135,7 +169,8 @@ export default function LandingPage() {
               Enterprise-Grade Capabilities
             </h2>
             <p className="text-xl text-foreground/70 text-balance">
-              Purpose-built for government transit systems with security and compliance at its core.
+              Purpose-built for government transit systems with security and
+              compliance at its core.
             </p>
           </div>
 
@@ -144,32 +179,38 @@ export default function LandingPage() {
               {
                 icon: Camera,
                 title: "Real-Time Passenger Detection",
-                description: "AI-powered computer vision counts passengers as they board, with zero privacy concerns.",
+                description:
+                  "AI-powered computer vision counts passengers as they board, with zero privacy concerns.",
               },
               {
                 icon: AlertCircle,
                 title: "Automated Fraud Identification",
-                description: "Instantly identifies ticket count mismatches and flags suspicious patterns.",
+                description:
+                  "Instantly identifies ticket count mismatches and flags suspicious patterns.",
               },
               {
                 icon: Shield,
                 title: "Secure Role-Based Access",
-                description: "Granular permissions ensure each role only sees authorized data.",
+                description:
+                  "Granular permissions ensure each role only sees authorized data.",
               },
               {
                 icon: BarChart3,
                 title: "Audit-Ready Government Reports",
-                description: "Compliant reporting with full audit trails and data governance.",
+                description:
+                  "Compliant reporting with full audit trails and data governance.",
               },
               {
                 icon: Lock,
                 title: "Privacy-First AI",
-                description: "No face recognition. Only passenger counting and ticket analysis.",
+                description:
+                  "No face recognition. Only passenger counting and ticket analysis.",
               },
               {
                 icon: Camera,
                 title: "Multi-Camera Support",
-                description: "Scalable to thousands of buses with distributed edge processing.",
+                description:
+                  "Scalable to thousands of buses with distributed edge processing.",
               },
             ].map((feature, idx) => (
               <Card
@@ -181,7 +222,9 @@ export default function LandingPage() {
                     <feature.icon className="w-8 h-8 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg text-foreground mb-2">{feature.title}</h3>
+                    <h3 className="font-semibold text-lg text-foreground mb-2">
+                      {feature.title}
+                    </h3>
                     <p className="text-foreground/70">{feature.description}</p>
                   </div>
                 </div>
@@ -208,29 +251,39 @@ export default function LandingPage() {
               {
                 step: "01",
                 title: "Camera Counts",
-                description: "Bus entrance camera counts passengers in real time using edge AI.",
+                description:
+                  "Bus entrance camera counts passengers in real time using edge AI.",
               },
               {
                 step: "02",
                 title: "Ticket Data Collected",
-                description: "Official ticketing system reports sold and validated tickets.",
+                description:
+                  "Official ticketing system reports sold and validated tickets.",
               },
               {
                 step: "03",
                 title: "AI Comparison",
-                description: "System compares counts across stops and journey endpoints.",
+                description:
+                  "System compares counts across stops and journey endpoints.",
               },
               {
                 step: "04",
                 title: "Fraud Alerts",
-                description: "Mismatches generate alerts with severity scoring for investigation.",
+                description:
+                  "Mismatches generate alerts with severity scoring for investigation.",
               },
             ].map((item, idx) => (
               <div key={idx} className="relative">
                 <Card className="p-6 border border-border/50">
-                  <div className="text-4xl font-bold text-primary/30 mb-4">{item.step}</div>
-                  <h3 className="font-semibold text-lg text-foreground mb-2">{item.title}</h3>
-                  <p className="text-foreground/70 text-sm">{item.description}</p>
+                  <div className="text-4xl font-bold text-primary/30 mb-4">
+                    {item.step}
+                  </div>
+                  <h3 className="font-semibold text-lg text-foreground mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-foreground/70 text-sm">
+                    {item.description}
+                  </p>
                 </Card>
                 {idx < 3 && (
                   <div className="hidden md:flex absolute top-1/2 -right-3 -translate-y-1/2 z-10">
@@ -257,17 +310,20 @@ export default function LandingPage() {
               {
                 badge: "🏛️",
                 title: "Smart City Ready",
-                description: "Designed to integrate with government transit infrastructure and reporting systems.",
+                description:
+                  "Designed to integrate with government transit infrastructure and reporting systems.",
               },
               {
                 badge: "✓",
                 title: "Government Compliant",
-                description: "Meets all regulatory requirements for data privacy, security, and audit trails.",
+                description:
+                  "Meets all regulatory requirements for data privacy, security, and audit trails.",
               },
               {
                 badge: "🔒",
                 title: "Privacy Preserving AI",
-                description: "Zero biometric data collection. Compliant with GDPR and government privacy standards.",
+                description:
+                  "Zero biometric data collection. Compliant with GDPR and government privacy standards.",
               },
             ].map((item, idx) => (
               <Card
@@ -275,7 +331,9 @@ export default function LandingPage() {
                 className="p-8 border border-border/50 text-center hover:border-primary/30 transition-all"
               >
                 <div className="text-4xl mb-4">{item.badge}</div>
-                <h3 className="font-semibold text-lg text-foreground mb-2">{item.title}</h3>
+                <h3 className="font-semibold text-lg text-foreground mb-2">
+                  {item.title}
+                </h3>
                 <p className="text-foreground/70">{item.description}</p>
               </Card>
             ))}
@@ -287,14 +345,21 @@ export default function LandingPage() {
       <section className="py-16 md:py-24 bg-gradient-to-r from-primary/5 to-secondary/5 border-t border-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">Ready to Deploy?</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
+              Ready to Deploy?
+            </h2>
             <p className="text-xl text-foreground/70 text-balance">
-              Join government transit authorities across the country using TransitGuard.
+              Join government transit authorities across the country using
+              TransitGuard.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild className="bg-gradient-to-r from-primary to-secondary">
+            <Button
+              size="lg"
+              asChild
+              className="bg-gradient-to-r from-primary to-secondary"
+            >
               <Link href="/auth">
                 Government Login
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -316,19 +381,29 @@ export default function LandingPage() {
                 <Camera className="w-5 h-5 text-primary" />
                 <span className="font-semibold">TransitGuard</span>
               </div>
-              <p className="text-sm text-foreground/60">Enterprise fraud detection for government city transport.</p>
+              <p className="text-sm text-foreground/60">
+                Enterprise fraud detection for government city transport.
+              </p>
             </div>
 
             <div>
-              <h4 className="font-semibold text-sm mb-4 text-foreground">Product</h4>
+              <h4 className="font-semibold text-sm mb-4 text-foreground">
+                Product
+              </h4>
               <ul className="space-y-2 text-sm text-foreground/60">
                 <li>
-                  <a href="#features" className="hover:text-foreground transition">
+                  <a
+                    href="#features"
+                    className="hover:text-foreground transition"
+                  >
                     Features
                   </a>
                 </li>
                 <li>
-                  <a href="#how-it-works" className="hover:text-foreground transition">
+                  <a
+                    href="#how-it-works"
+                    className="hover:text-foreground transition"
+                  >
                     How It Works
                   </a>
                 </li>
@@ -341,7 +416,9 @@ export default function LandingPage() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-sm mb-4 text-foreground">Company</h4>
+              <h4 className="font-semibold text-sm mb-4 text-foreground">
+                Company
+              </h4>
               <ul className="space-y-2 text-sm text-foreground/60">
                 <li>
                   <a href="#" className="hover:text-foreground transition">
@@ -362,7 +439,9 @@ export default function LandingPage() {
             </div>
 
             <div>
-              <h4 className="font-semibold text-sm mb-4 text-foreground">Legal</h4>
+              <h4 className="font-semibold text-sm mb-4 text-foreground">
+                Legal
+              </h4>
               <ul className="space-y-2 text-sm text-foreground/60">
                 <li>
                   <a href="#" className="hover:text-foreground transition">
@@ -384,10 +463,13 @@ export default function LandingPage() {
           </div>
 
           <div className="border-t border-border/40 pt-8 text-center text-sm text-foreground/60">
-            <p>© 2025 TransitGuard. All rights reserved. Government-grade infrastructure.</p>
+            <p>
+              © 2025 TransitGuard. All rights reserved. Government-grade
+              infrastructure.
+            </p>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
