@@ -1,0 +1,155 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Udhna Darwaja",
+                "type": "BRTS",
+                "route": "Route 11"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    72.8540,
+                    21.1920
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Kharwar Nagar",
+                "type": "BRTS",
+                "route": "Route 11"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    72.8500,
+                    21.1815
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Udhna GSRTC",
+                "type": "BRTS",
+                "route": "Route 11"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    72.8462,
+                    21.1705
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Udhna Academy",
+                "type": "BRTS",
+                "route": "Route 11"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    72.8435,
+                    21.1630
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Daksheswar Mahadev",
+                "type": "BRTS",
+                "route": "Route 11"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    72.8402,
+                    21.1536
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Pandesara G.I.D.C.",
+                "type": "BRTS",
+                "route": "Route 11"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    72.8350,
+                    21.1375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Green Park",
+                "type": "BRTS",
+                "route": "Route 11"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    72.8315,
+                    21.1250
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Unn Naka",
+                "type": "BRTS",
+                "route": "Route 11"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    72.8272,
+                    21.1110
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Bhestan",
+                "type": "BRTS",
+                "route": "Route 11"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    72.8260,
+                    21.1060
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "Sachin G.I.D.C.",
+                "type": "BRTS",
+                "route": "Route 11"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    72.8243,
+                    21.0995
+                ]
+            }
+        }
+    ]
+}
